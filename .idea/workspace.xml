@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7998c2b0-3e4b-4bc1-b6da-c8e727660ba2" name="Default Changelist" comment="template for the template" />
+    <list default="true" id="7998c2b0-3e4b-4bc1-b6da-c8e727660ba2" name="Default Changelist" comment="Commit Message">
+      <change afterPath="$PROJECT_DIR$/templates/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,12 +40,15 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="26ITguQsQJggS3PvaeOPqdDIzRs" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="sqlite" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -116,7 +122,7 @@
       <workItem from="1648387271222" duration="2296000" />
       <workItem from="1648825837398" duration="441000" />
       <workItem from="1649187415196" duration="1144000" />
-      <workItem from="1649596284449" duration="1407000" />
+      <workItem from="1649596284449" duration="2935000" />
     </task>
     <task id="LOCAL-00001" summary="add database and first template">
       <created>1649597858585</created>
@@ -139,7 +145,21 @@
       <option name="project" value="LOCAL" />
       <updated>1649598211551</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Commit Message">
+      <created>1649598550232</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1649598550232</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Commit Message">
+      <created>1649598558253</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1649598558253</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,12 +177,14 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="add database and first template" />
     <MESSAGE value="template for the template" />
-    <option name="LAST_COMMIT_MESSAGE" value="template for the template" />
+    <MESSAGE value="Commit Message" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit Message" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/AnimeProject$AnimeProject.coverage" NAME="AnimeProject Coverage Results" MODIFIED="1649598272713" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/AnimeProject$AnimeProject.coverage" NAME="AnimeProject Coverage Results" MODIFIED="1649598408947" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/AnimeProject$test.coverage" NAME="test Coverage Results" MODIFIED="1648393184365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
