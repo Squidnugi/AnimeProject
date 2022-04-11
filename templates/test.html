@@ -1,4 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>{{ hello }}</h1>
+    <form method="post", action="http://localhost:5000/">
+        <input type="text" name="temp">
+        <button type="submit" value="submit">Submit</button>
+    </form>
 {% endblock %}

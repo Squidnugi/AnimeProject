@@ -1,12 +1,15 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/', methods = ['POST', 'GET'])
 def main():
-    temp = input(">> ")
-    return render_template('index.html', hello=f'Hi {temp}')
+    if request.method == 'POST':
+        temp = request.form['temp']
+        return render_template('index.html', hello=f'Hi {temp}')
+    else:
+        return render_template('test.html')
 
 
 if __name__ == '__main__':

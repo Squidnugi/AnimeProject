@@ -1332,76 +1332,122 @@
     <argument id="490" parent="169">
       <Position>1</Position>
     </argument>
-    <table id="491" parent="170" name="sqlite_master">
+    <table id="491" parent="170" name="manga_db"/>
+    <table id="492" parent="170" name="sqlite_master">
       <System>1</System>
     </table>
-    <table id="492" parent="170" name="sqlite_sequence">
+    <table id="493" parent="170" name="sqlite_sequence">
       <System>1</System>
     </table>
-    <table id="493" parent="170" name="users"/>
-    <column id="494" parent="491" name="type">
-      <DataType>text|0s</DataType>
-      <Position>1</Position>
-    </column>
-    <column id="495" parent="491" name="name">
-      <DataType>text|0s</DataType>
-      <Position>2</Position>
-    </column>
-    <column id="496" parent="491" name="tbl_name">
-      <DataType>text|0s</DataType>
-      <Position>3</Position>
-    </column>
-    <column id="497" parent="491" name="rootpage">
-      <DataType>int|0s</DataType>
-      <Position>4</Position>
-    </column>
-    <column id="498" parent="491" name="sql">
-      <DataType>text|0s</DataType>
-      <Position>5</Position>
-    </column>
-    <column id="499" parent="492" name="name">
-      <Position>1</Position>
-    </column>
-    <column id="500" parent="492" name="seq">
-      <Position>2</Position>
-    </column>
-    <column id="501" parent="493" name="ID">
+    <table id="494" parent="170" name="users"/>
+    <column id="495" parent="491" name="ID">
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="502" parent="493" name="username">
-      <DataType>text|0s</DataType>
+    <column id="496" parent="491" name="user_ID">
+      <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="503" parent="493" name="email">
+    <column id="497" parent="491" name="name">
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="504" parent="493" name="password">
-      <DataType>text|0s</DataType>
+    <column id="498" parent="491" name="volumes">
+      <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <index id="505" parent="493" name="users_ID_uindex">
+    <column id="499" parent="491" name="volumes_max">
+      <DataType>integer|0s</DataType>
+      <Position>5</Position>
+    </column>
+    <column id="500" parent="491" name="img">
+      <DataType>text|0s</DataType>
+      <Position>6</Position>
+    </column>
+    <foreign-key id="501" parent="491">
+      <ColNames>user_ID</ColNames>
+      <RefColNames>ID</RefColNames>
+      <RefKeyName>users_pk</RefKeyName>
+      <RefTableName>users</RefTableName>
+    </foreign-key>
+    <index id="502" parent="491" name="manga_db_ID_uindex">
       <ColNames>ID</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="506" parent="493" name="users_username_uindex">
+    <key id="503" parent="491" name="manga_db_pk">
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>manga_db_ID_uindex</UnderlyingIndexName>
+    </key>
+    <column id="504" parent="492" name="type">
+      <DataType>text|0s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="505" parent="492" name="name">
+      <DataType>text|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="506" parent="492" name="tbl_name">
+      <DataType>text|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="507" parent="492" name="rootpage">
+      <DataType>int|0s</DataType>
+      <Position>4</Position>
+    </column>
+    <column id="508" parent="492" name="sql">
+      <DataType>text|0s</DataType>
+      <Position>5</Position>
+    </column>
+    <column id="509" parent="493" name="name">
+      <Position>1</Position>
+    </column>
+    <column id="510" parent="493" name="seq">
+      <Position>2</Position>
+    </column>
+    <column id="511" parent="494" name="ID">
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="512" parent="494" name="username">
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="513" parent="494" name="email">
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="514" parent="494" name="password">
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <index id="515" parent="494" name="users_ID_uindex">
+      <ColNames>ID</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="516" parent="494" name="users_username_uindex">
       <ColNames>username</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="507" parent="493" name="users_email_uindex">
+    <index id="517" parent="494" name="users_email_uindex">
       <ColNames>email</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="508" parent="493" name="users_pk">
+    <key id="518" parent="494" name="users_pk">
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>users_ID_uindex</UnderlyingIndexName>
