@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-    <form method="post", action="http://localhost:5000/">
+    <form method="POST", action="{{ url_for('main') }}">
         <input type="text" name="temp">
         <button type="submit" value="submit">Submit</button>
     </form>
