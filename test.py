@@ -1,27 +1,56 @@
-# import generate_password_hash and check_password_hash here:
-from werkzeug.security import check_password_hash, generate_password_hash
+# # import generate_password_hash and check_password_hash here:
+# from werkzeug.security import check_password_hash, generate_password_hash
+#
+# hardcoded_password_string = "123456789_bad_password"
+#
+# # generate a hash of hardcoded_password_string here:
+#
+# hashed_password = generate_password_hash(hardcoded_password_string)
+# print(hashed_password)
+#
+# password_attempt_one = "abcdefghij_123456789"
+#
+# # check password_attempt_one against hashed_password here:
+#
+# hash_match_one = check_password_hash(password_attempt_one, hashed_password)
+# print(hash_match_one)
+#
+# password_attempt_two = "123456789_bad_password"
+#
+# # check password_attempt_two against hashed_password here:
+#
+# hash_match_two = check_password_hash(hashed_password, password_attempt_two)
+# print(hash_match_two)
+#
+# hash = generate_password_hash('Squidnugi')
+#
+# print(check_password_hash(hash, 'Squidnugi1'))
+import sqlite3
 
-hardcoded_password_string = "123456789_bad_password"
+con = sqlite3.connect('identifier.sqlite')
 
-# generate a hash of hardcoded_password_string here:
 
-hashed_password = generate_password_hash(hardcoded_password_string)
-print(hashed_password)
+def sql_insert(con, values):
+    cursorObj = con.cursor()
+    cursorObj.execute(f'INSERT INTO users(username, password) VALUES({values[0]}, {values[1]})')
 
-password_attempt_one = "abcdefghij_123456789"
+    con.commit()
 
-# check password_attempt_one against hashed_password here:
 
-hash_match_one = check_password_hash(password_attempt_one, hashed_password)
-print(hash_match_one)
+entities = ['Squidnugi', 'asdf']
 
-password_attempt_two = "123456789_bad_password"
+sql_insert(con, entities)
 
-# check password_attempt_two against hashed_password here:
+def sql_fetch(con):
 
-hash_match_two = check_password_hash(hashed_password, password_attempt_two)
-print(hash_match_two)
+    cursorObj = con.cursor()
 
-hash = generate_password_hash('Squidnugi')
+    cursorObj.execute('SELECT * FROM users')
 
-print(check_password_hash(hash, 'Squidnugi1'))
+    rows = cursorObj.fetchall()
+
+    for row in rows:
+
+        print(row)
+
+sql_fetch(con)

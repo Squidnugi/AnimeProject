@@ -1422,32 +1422,17 @@
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="513" parent="494" name="email">
+    <column id="513" parent="494" name="password">
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="514" parent="494" name="password">
-      <DataType>text|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-    </column>
-    <index id="515" parent="494" name="users_ID_uindex">
+    <index id="514" parent="494" name="users_ID_uindex">
       <ColNames>ID</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="516" parent="494" name="users_username_uindex">
-      <ColNames>username</ColNames>
-      <ColumnCollations></ColumnCollations>
-      <Unique>1</Unique>
-    </index>
-    <index id="517" parent="494" name="users_email_uindex">
-      <ColNames>email</ColNames>
-      <ColumnCollations></ColumnCollations>
-      <Unique>1</Unique>
-    </index>
-    <key id="518" parent="494" name="users_pk">
+    <key id="515" parent="494" name="users_pk">
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>users_ID_uindex</UnderlyingIndexName>
