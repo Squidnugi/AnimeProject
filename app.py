@@ -15,12 +15,15 @@ def main():
 @app.route('/sign_up', methods = ['POST', 'GET'])
 def sign_up():
     if request.method == 'POST':
+        temp = []
         user = request.form['username']
-        email = request.form['email']
+        temp.append(user)
         password = request.form['password']
+        temp.append(password)
         with sqlite3.connect("identifier.sqlite") as con:
             cur = con.cursor()
-            cur.execute(f"INSERT INTO users (username, password, email) VALUES ({user}, {password}, {email})")
+            print('sup')
+            cur.execute("INSERT INTO users (username, password) VALUES (?, ?)", temp)
             con.commit()
         resp = make_response(redirect(url_for('main')))
         resp.set_cookie('user', user)

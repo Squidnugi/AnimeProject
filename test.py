@@ -30,27 +30,33 @@ import sqlite3
 con = sqlite3.connect('identifier.sqlite')
 
 
-def sql_insert(con, values):
-    cursorObj = con.cursor()
-    cursorObj.execute(f'INSERT INTO users(username, password) VALUES({values[0]}, {values[1]})')
+# def sql_insert(con, values):
+#     cursorObj = con.cursor()
+#     cursorObj.execute('INSERT INTO users(username, password) VALUES(?, ?)', values)
+#
+#     con.commit()
+#
+#
+# entities = ['Squidnugi', 'asdf']
+#
+# sql_insert(con, entities)
+#
+# def sql_fetch(con):
+#
+#     cursorObj = con.cursor()
+#
+#     cursorObj.execute('SELECT * FROM users')
+#
+#     rows = cursorObj.fetchall()
+#
+#     for row in rows:
+#
+#         print(row)
+#
+# sql_fetch(con)
 
-    con.commit()
 
-
-entities = ['Squidnugi', 'asdf']
-
-sql_insert(con, entities)
-
-def sql_fetch(con):
-
-    cursorObj = con.cursor()
-
-    cursorObj.execute('SELECT * FROM users')
-
-    rows = cursorObj.fetchall()
-
-    for row in rows:
-
-        print(row)
-
-sql_fetch(con)
+temp = []
+temp.append('squid')
+temp.append('asdf')
+print(temp)
