@@ -2,12 +2,22 @@ from flask import Flask, render_template, request, url_for, redirect, make_respo
 import sqlite3
 
 app = Flask(__name__)
-users = ['Squid']
 
 @app.route('/', methods = ['POST', 'GET'])
 def main():
+    users = ''
     name = request.cookies.get('user')
-    if name in users:
+    with sqlite3.connect('identifier.sqlite') as con:
+        cur = con.cursor()
+
+        cur.execute('SELECT username FROM users')
+
+        rows = cur.fetchall()
+
+        for i in rows:
+            if i[0] == name:
+                users = i[0]
+    if name == users:
         return render_template('index.html', name=name)
     else:
         return render_template('welcome.html')
@@ -34,12 +44,27 @@ def sign_up():
 @app.route('/login', methods = ['POST', 'GET'])
 def login():
     if request.method == 'POST':
-        print('hi')
+        logged = False
         user = request.form['username']
         password = request.form['password']
-        resp = make_response(redirect(url_for('main')))
-        resp.set_cookie('user', user)
-        return resp
+        print('hi')
+        with sqlite3.connect("identifier.sqlite") as con:
+            cur = con.cursor()
+
+            cur.execute('SELECT username, password FROM users')
+
+            rows = cur.fetchall()
+
+            for i in rows:
+                if i[0] == user:
+                    if i[1] == password:
+                        logged = True
+        if logged:
+            resp = make_response(redirect(url_for('main')))
+            resp.set_cookie('user', user)
+            return resp
+        else:
+            return render_template('login.html')
     else:
         return render_template('login.html')
 
