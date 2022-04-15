@@ -6,19 +6,39 @@ app = Flask(__name__)
 @app.route('/', methods = ['POST', 'GET'])
 def main():
     users = ''
+    ID = 0
+    values = []
     name = request.cookies.get('user')
     with sqlite3.connect('identifier.sqlite') as con:
         cur = con.cursor()
 
-        cur.execute('SELECT username FROM users')
+        cur.execute('SELECT username, ID FROM users')
 
         rows = cur.fetchall()
 
         for i in rows:
             if i[0] == name:
                 users = i[0]
+                ID = i[1]
     if name == users:
-        return render_template('index.html', name=name)
+        with sqlite3.connect('identifier.sqlite') as con:
+            cur2 = con.cursor()
+
+            cur2.execute('SELECT * FROM manga_db')
+
+            manga = cur2.fetchall()
+
+            for i in manga:
+                if i[1] == ID:
+                    temp = {}
+                    temp['ID'] = i[0]
+                    temp['user_ID'] = i[1]
+                    temp['name'] = i[2]
+                    temp['vol'] = i[3]
+                    temp['vol_max'] = i[4]
+                    temp['img'] = i[5]
+                    values.append(temp)
+        return render_template('index.html', name=name, table=values)
     else:
         return render_template('welcome.html')
 
