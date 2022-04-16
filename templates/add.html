@@ -1,0 +1,25 @@
+{% extends "base_no_nav.html" %}
+{% block content %}
+    <form action="{{ url_for('add') }}", method="post">
+        <br>
+        <div class="input-group">
+            <input type = "text" name = "name" placeholder="Name" class="form-control">
+        </div>
+        <br>
+        <div class="input-group">
+            <input type = "text" name = "img" placeholder="Image" class="form-control">
+            <span class="input-group-text">Leave blank if no picture</span>
+        </div>
+        <br>
+        <div class="input-group">
+            <input type = "text" name = "vol" placeholder="volume number" class="form-control">
+        </div>
+        <br>
+        <div class="input-group">
+            <input type = "text" name = "vol_max" placeholder="volume number max" class="form-control">
+            <span class="input-group-text">Leave blank if not finished</span>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}

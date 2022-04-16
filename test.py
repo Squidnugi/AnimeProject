@@ -25,10 +25,10 @@
 # hash = generate_password_hash('Squidnugi')
 #
 # print(check_password_hash(hash, 'Squidnugi1'))
-import sqlite3
-
-con = sqlite3.connect('identifier.sqlite')
-
+# import sqlite3
+#
+# con = sqlite3.connect('identifier.sqlite')
+#
 
 # def sql_insert(con, values):
 #     cursorObj = con.cursor()
@@ -41,17 +41,28 @@ con = sqlite3.connect('identifier.sqlite')
 #
 # sql_insert(con, entities)
 
-def sql_fetch(con):
+# def sql_fetch(con):
+#
+#     cur = con.cursor()
+#
+#     cur.execute('SELECT * FROM users')
+#
+#     rows = cur.fetchall()
+#
+#     for row in rows:
+#
+#         print(row)
+#
+# sql_fetch(con)
 
-    cur = con.cursor()
+from flask import Flask, render_template, request, url_for, redirect, make_response
 
-    cur.execute('SELECT * FROM users')
+app = Flask(__name__)
 
-    rows = cur.fetchall()
+@app.route('/')
+def main():
+    return render_template('test.html')
 
-    for row in rows:
-
-        print(row)
-
-sql_fetch(con)
-
+@app.route('/edit')
+def edit():
+    return render_template('edit.html')

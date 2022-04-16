@@ -97,5 +97,12 @@ def sign_out():
     else:
         return render_template('sign_out.html')
 
+@app.route('/add', methods = ['GET', 'POST'])
+def add():
+    if request.method == 'POST':
+        return redirect(url_for('main'))
+    else:
+        return render_template('add.html')
+
 if __name__ == '__main__':
     app.run()

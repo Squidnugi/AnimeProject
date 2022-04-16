@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
     <h1>{{ name }}</h1>
+    <form action="{{ url_for('add') }}", method="get">
+        <button type="submit" class="btn btn-primary">Edit</button>
+    </form>
     <table class="table">
         <thead>
         <tr>
@@ -13,8 +16,7 @@
             <tbody>
                 <tr>
                     <th>{{ i['name'] }}</th>
-                    <th>{{ i['vol'] }}</th>
-                    <th>{{ i['vol_max'] }}</th>
+                    <th>{{ i['vol'] }}/{{ i['vol_max'] }}</th>
                 </tr>
             </tbody>
         {% endfor %}
