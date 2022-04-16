@@ -88,5 +88,14 @@ def login():
     else:
         return render_template('login.html')
 
+@app.route('/sign_out', methods = ['GET', 'POST'])
+def sign_out():
+    if request.method == 'POST':
+        resp = make_response(redirect(url_for('main')))
+        resp.delete_cookie('user')
+        return resp
+    else:
+        return render_template('sign_out.html')
+
 if __name__ == '__main__':
     app.run()
