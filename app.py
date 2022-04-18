@@ -100,6 +100,18 @@ def sign_out():
 @app.route('/add', methods = ['GET', 'POST'])
 def add():
     if request.method == 'POST':
+        name = request.form['name']
+        img = request.form['img']
+        vol = int(request.form['vol'])
+        vol_max = request.form['vol_max']
+        if vol_max == '':
+            vol_max = 0
+        else:
+            vol_max = int(vol_max)
+        print(name, type(name))
+        print(img, type(name))
+        print(vol, type(vol))
+        print(vol_max, type(vol_max))
         return redirect(url_for('main'))
     else:
         return render_template('add.html')

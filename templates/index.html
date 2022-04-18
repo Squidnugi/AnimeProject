@@ -8,15 +8,19 @@
         <thead>
         <tr>
             <th>Name</th>
-            <th>Volume count</th>
-            <th>Volume max</th>
+            <th>Volume</th>
+            <th>Tags</th>
         </tr>
         </thead>
         {% for i in table %}
             <tbody>
                 <tr>
                     <th>{{ i['name'] }}</th>
-                    <th>{{ i['vol'] }}/{{ i['vol_max'] }}</th>
+                    {% if i['vol_max'] == 0 %}
+                        <th>{{ i['vol'] }}/-</th>
+                    {% else %}
+                        <th>{{ i['vol'] }}/{{ i['vol_max'] }}</th>
+                    <th><button action=""></button></th>
                 </tr>
             </tbody>
         {% endfor %}
