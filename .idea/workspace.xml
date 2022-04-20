@@ -7,7 +7,6 @@
     <list default="true" id="7998c2b0-3e4b-4bc1-b6da-c8e727660ba2" name="Default Changelist" comment="Commit Message">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +133,9 @@
       <workItem from="1650101909060" duration="73000" />
       <workItem from="1650102014738" duration="13624000" />
       <workItem from="1650202178020" duration="4926000" />
-      <workItem from="1650292613579" duration="1618000" />
+      <workItem from="1650292613579" duration="2246000" />
+      <workItem from="1650380607658" duration="4440000" />
+      <workItem from="1650462203908" duration="7194000" />
     </task>
     <task id="LOCAL-00001" summary="add database and first template">
       <created>1649597858585</created>
@@ -248,7 +249,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650126798932</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Commit Message">
+      <created>1650298973313</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1650298973313</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
