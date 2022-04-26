@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect, make_response
 import sqlite3
-
+print("http://localhost:5000/")
 app = Flask(__name__)
 
 @app.route('/', methods = ['POST', 'GET'])
@@ -124,4 +124,4 @@ def edit():
         return render_template('edit.html')
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host="localhost", port=5000, debug=True)

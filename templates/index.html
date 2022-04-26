@@ -20,7 +20,8 @@
                         <th>{{ i['vol'] }}/-</th>
                     {% else %}
                         <th>{{ i['vol'] }}/{{ i['vol_max'] }}</th>
-                    <th><button action=""></button></th>
+                    <th><button action="" class="btn btn-link">link</button></th>
+                    {% endif %}
                 </tr>
             </tbody>
         {% endfor %}
