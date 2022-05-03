@@ -4,12 +4,12 @@
     <form action="{{ url_for('add') }}", method="get">
         <button type="submit" class="btn btn-primary">Add</button>
     </form>
-    <table class="table">
+    <table class="table table-striped">
         <thead>
         <tr>
             <th>Name</th>
             <th>Volume</th>
-            <th>Tags</th>
+            <th>Edit</th>
         </tr>
         </thead>
         {% for i in table %}
@@ -20,8 +20,12 @@
                         <th>{{ i['vol'] }}/-</th>
                     {% else %}
                         <th>{{ i['vol'] }}/{{ i['vol_max'] }}</th>
-                    <th><button action="" class="btn btn-link">link</button></th>
                     {% endif %}
+                    <th>
+                        <form action="{{ url_for('edit') }}" method="get">
+                            <button type="submit" class="btn btn-link" name = "test" value="{{ i['ID'] }}">link</button>
+                        </form>
+                    </th>
                 </tr>
             </tbody>
         {% endfor %}

@@ -4,6 +4,24 @@ import sqlite3
 print("http://localhost:5000/")
 app = Flask(__name__)
 
+def get_id_user(type):
+    name = request.cookies.get('user')
+    with sqlite3.connect('identifier.sqlite') as con:
+        cur = con.cursor()
+
+        cur.execute('SELECT username, ID FROM users')
+
+        rows = cur.fetchall()
+
+        for i in rows:
+            if i[0] == name:
+                users = i[0]
+                ID = i[1]
+    if type:
+        return users
+    else:
+        return ID
+
 @app.route('/', methods = ['POST', 'GET'])
 def main():
     users = ''
@@ -109,6 +127,14 @@ def add():
             vol_max = 0
         else:
             vol_max = int(vol_max)
+        if img == '':
+            img == 'Blank'
+        ID = get_id_user(False)
+        with sqlite3.connect("identifier.sqlite") as con:
+            cur = con.cursor()
+
+            cur.execute('INSERT INTO manga_db (user_ID, name, volumes, volumes_max, img) VALUES (?, ?, ?, ?, ?)', (ID, name, vol, vol_max, img))
+            con.commit()
         print(name, type(name))
         print(img, type(name))
         print(vol, type(vol))
@@ -117,12 +143,53 @@ def add():
     else:
         return render_template('add.html')
 
-@app.route('/edit', methods = ['GET', 'POST'])
+@app.route('/edit/', methods = ['GET', 'POST'])
 def edit():
     if request.method == 'POST':
+        manga = request.form['manga']
+        img = request.form['img']
+        vol = int(request.form['vol'])
+        vol_max = request.form['vol_max']
+        if vol_max == '':
+            vol_max = 0
+        else:
+            vol_max = int(vol_max)
+        if img == '':
+            img == 'Blank'
+        ID = get_id_user(False)
+        print(manga, vol, vol_max, img, ID)
+        print(type(manga), type(vol), type(vol_max), type(img), type(ID))
+        with sqlite3.connect("identifier.sqlite") as con:
+            cur = con.cursor()
+
+            cur.execute(f'UPDATE manga_db SET name = {manga}, volumes = {vol}, volumes_max = {vol_max}, img = {img} WHERE ID = {ID}')
+            con.commit()
+        print(manga, type(manga))
+        print(img, type(manga))
+        print(vol, type(vol))
+        print(vol_max, type(vol_max))
         return redirect(url_for('main'))
     else:
-        return render_template('edit.html')
+        ID = int(request.args.get('test'))
+        print(type(ID))
+        values = {}
+        with sqlite3.connect('identifier.sqlite') as con:
+            cur = con.cursor()
+
+            cur.execute('SELECT * FROM manga_db')
+
+            manga = cur.fetchall()
+
+            for i in manga:
+                if i[0] == ID:
+                    values['ID'] = i[0]
+                    values['user_ID'] = i[1]
+                    values['name'] = i[2]
+                    values['vol'] = i[3]
+                    values['vol_max'] = i[4]
+                    values['img'] = i[5]
+        print(values)
+        return render_template('edit.html', info=values)
 
 if __name__ == '__main__':
     app.run(host="localhost", port=5000, debug=True)
