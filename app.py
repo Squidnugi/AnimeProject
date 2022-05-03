@@ -150,6 +150,7 @@ def edit():
         img = request.form['img']
         vol = int(request.form['vol'])
         vol_max = request.form['vol_max']
+        print(vol_max)
         if vol_max == '':
             vol_max = 0
         else:
@@ -162,7 +163,7 @@ def edit():
         with sqlite3.connect("identifier.sqlite") as con:
             cur = con.cursor()
 
-            cur.execute(f'UPDATE manga_db SET name = {manga}, volumes = {vol}, volumes_max = {vol_max}, img = {img} WHERE ID = {ID}')
+            cur.execute('UPDATE manga_db SET name = ?, volumes = ?, volumes_max = ?, img = ? WHERE ID = ?', (manga, vol, vol_max, img, ID))
             con.commit()
         print(manga, type(manga))
         print(img, type(manga))
