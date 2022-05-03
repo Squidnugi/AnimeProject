@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Do you wish to delete {{ values['name'] }}?</h1>
+    <form action="{{ url_for('delete') }}" method="post">
+        <button type="submit" class="btn btn-primary" value="{{ values['ID'] }}" name="dele">Yes</button>
+    </form>
+    <form action="{{ url_for('main') }}", method="get">
+        <button type="submit" class="btn btn-primary">No</button>
+    </form>
+{% endblock %}

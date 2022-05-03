@@ -13,6 +13,7 @@
             <th>Name</th>
             <th>Volume</th>
             <th>Edit</th>
+            <th>Delete</th>
         </tr>
         </thead>
         {% for i in table %}
@@ -29,6 +30,10 @@
                             <button type="submit" class="btn btn-link" name = "test" value="{{ i['ID'] }}">link</button>
                         </form>
                     </th>
+                    <th>
+                        <form action="{{ url_for('delete') }}" method="get">
+                            <button type="submit" class="btn btn-link" name = "test" value="{{ i['ID'] }}">link</button>
+                        </form>
                 </tr>
             </tbody>
         {% endfor %}

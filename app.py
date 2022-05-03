@@ -43,7 +43,7 @@ def main():
         with sqlite3.connect('identifier.sqlite') as con:
             cur2 = con.cursor()
 
-            cur2.execute('SELECT * FROM manga_db')
+            cur2.execute('SELECT * FROM manga_db ORDER BY name ASC')
 
             manga = cur2.fetchall()
 
@@ -191,6 +191,37 @@ def edit():
                     values['img'] = i[5]
         print(values)
         return render_template('edit.html', info=values)
+
+@app.route('/delete', methods = ['GET', 'POST'])
+def delete():
+    if request.method == 'POST':
+        ID = request.form['dele']
+        with sqlite3.connect("identifier.sqlite") as con:
+            cur = con.cursor()
+
+            cur.execute('DELETE FROM manga_db WHERE ID = ?', (ID,))
+            con.commit()
+        return redirect(url_for('main'))
+    else:
+        values = {}
+        ID = int(request.args.get('test'))
+        with sqlite3.connect("identifier.sqlite") as con:
+            cur = con.cursor()
+
+            cur.execute('DELETE FROM manga_db WHERE ID = ?', (ID,))
+            con.commit()
+
+            manga = cur.fetchall()
+
+            for i in manga:
+                if i[0] == ID:
+                    values['ID'] = i[0]
+                    values['user_ID'] = i[1]
+                    values['name'] = i[2]
+                    values['vol'] = i[3]
+                    values['vol_max'] = i[4]
+                    values['img'] = i[5]
+        return render_template('delete.html', values=values)
 
 if __name__ == '__main__':
     app.run(host="localhost", port=5000, debug=True)
