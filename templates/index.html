@@ -4,7 +4,10 @@
     <form action="{{ url_for('add') }}", method="get">
         <button type="submit" class="btn btn-primary">Add</button>
     </form>
-    <table class="table table-striped">
+    <div class="form-group pull-right">
+        <input type="text" class="search form-control" placeholder="What you looking for?">
+    </div>
+    <table class="table table-striped" id="userTbl">
         <thead>
         <tr>
             <th>Name</th>

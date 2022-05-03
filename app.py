@@ -150,6 +150,7 @@ def edit():
         img = request.form['img']
         vol = int(request.form['vol'])
         vol_max = request.form['vol_max']
+        ID = request.form['ID']
         print(vol_max)
         if vol_max == '':
             vol_max = 0
@@ -157,7 +158,6 @@ def edit():
             vol_max = int(vol_max)
         if img == '':
             img == 'Blank'
-        ID = get_id_user(False)
         print(manga, vol, vol_max, img, ID)
         print(type(manga), type(vol), type(vol_max), type(img), type(ID))
         with sqlite3.connect("identifier.sqlite") as con:
