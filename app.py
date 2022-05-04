@@ -195,6 +195,7 @@ def edit():
 @app.route('/delete', methods = ['GET', 'POST'])
 def delete():
     if request.method == 'POST':
+        print('test')
         ID = request.form['dele']
         with sqlite3.connect("identifier.sqlite") as con:
             cur = con.cursor()
@@ -208,7 +209,7 @@ def delete():
         with sqlite3.connect("identifier.sqlite") as con:
             cur = con.cursor()
 
-            cur.execute('DELETE FROM manga_db WHERE ID = ?', (ID,))
+            cur.execute('SELECT * FROM manga_db')
             con.commit()
 
             manga = cur.fetchall()
