@@ -5,6 +5,7 @@ print("http://localhost:5000/")
 app = Flask(__name__)
 
 def get_id_user():
+    ID = 0
     users = ''
     name = request.cookies.get('user')
     with sqlite3.connect('identifier.sqlite') as con:
