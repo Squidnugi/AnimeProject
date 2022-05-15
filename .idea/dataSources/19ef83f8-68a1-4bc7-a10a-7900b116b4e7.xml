@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="identifier.sqlite">
-  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.38">
-    <root id="1"/>
+  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.32">
+    <root id="1">
+      <ServerVersion>3.34.0</ServerVersion>
+    </root>
     <collation id="2" parent="1" name="BINARY"/>
     <collation id="3" parent="1" name="NOCASE"/>
     <collation id="4" parent="1" name="RTRIM"/>
@@ -1339,10 +1341,10 @@
     </table>
     <table id="494" parent="170" name="users"/>
     <column id="495" parent="491" name="ID">
-      <AutoIncrement>1</AutoIncrement>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="496" parent="491" name="user_ID">
       <DataType>integer|0s</DataType>
@@ -1375,6 +1377,7 @@
     </foreign-key>
     <index id="502" parent="491" name="manga_db_ID_uindex">
       <ColNames>ID</ColNames>
+      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="503" parent="491" name="manga_db_pk">
@@ -1409,10 +1412,10 @@
       <Position>2</Position>
     </column>
     <column id="511" parent="494" name="ID">
-      <AutoIncrement>1</AutoIncrement>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="512" parent="494" name="username">
       <DataType>text|0s</DataType>
@@ -1426,6 +1429,7 @@
     </column>
     <index id="514" parent="494" name="users_ID_uindex">
       <ColNames>ID</ColNames>
+      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="515" parent="494" name="users_pk">
